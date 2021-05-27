@@ -1,0 +1,36 @@
+<% if user_signed_in? %>
+<h1>Anime List</h1>
+
+<table class="table table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Season</th>
+      <th>Episode</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animes.each do |anime|%>
+      <% if anime.user == current_user %>
+      <tr>
+        <td><%= link_to anime.title.to_s.capitalize, anime %></td>
+        <td><%= anime.animestatus.to_s.capitalize %></td>
+        <td><%= anime.season %></td>
+        <td><%= anime.episode %></td>
+        <td><%= link_to 'Delete', anime, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger btn-sm' %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add Anime', new_anime_path, class:"btn btn-secondary" %>
+<% else %>
+<br/>
+<h1>Hello World!</h1>
+
+This is my first Rails page
+<% end %>

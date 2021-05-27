@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1 class="display-4">
+  	<%= @anime.title.capitalize %>
+  </h1>
+  <p class="lead">  
+  	<strong>Status:</strong> <%= @anime.animestatus.to_s.capitalize %>
+  	<br/>	
+  	<strong>Season:</strong> <%= @anime.season %>, <strong>Episode:</strong> <%= @anime.episode %>
+  </p>
+  <hr class="my-4">
+  <p class="lead">
+    <%= link_to 'Edit', edit_anime_path(@anime), class:'btn btn-secondary' %>
+    <%= link_to 'Delete', @anime, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+    <%= link_to 'Back', animes_path, class:'btn btn-secondary' %>
+  </p>
+</div>

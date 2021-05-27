@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header">
+    Editing Anime
+  </div>
+  <div class="card-body">
+    <%= render 'form', anime: @anime %>
+    <br/>
+    <%= link_to 'Show', @anime, class:'btn btn-secondary' %>
+    <%= link_to 'Delete', @anime, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+  </div>
+</div>
+
+<br/>
+
+<%= link_to 'Back', animes_path, class:'btn btn-secondary' %>
